@@ -9,9 +9,9 @@ def get_amount():
       print('Invalid amount')
 
 def get_currency(label):
-  currencies = ('USD', 'EUR', 'CAD')
+  currencies = ('USD', 'EUR', 'INR', 'CAD')
   while True:
-    currency = input(f'{label} currency (USD/EUR/CAD): ').upper()
+    currency = input(f'{label} currency (USD/EUR/INR/CAD): ').upper()
     if currency not in currencies:
       print('Invalid currency')
     else:
@@ -20,9 +20,10 @@ def get_currency(label):
 
 def convert(amount, source_currency, target_currency):
   exchange_rates = {
-    'USD': { 'EUR': 0.85, 'CAD': 1.25 },
-    'EUR': { 'USD': 1.18, 'CAD': 1.47 },
-    'CAD': { 'USD': 0.80, 'EUR': 0.68 },
+    'USD': { 'EUR': 0.85, 'INR': 74.85, 'CAD': 1.25 },
+    'EUR': { 'USD': 1.18, 'INR': 88.50, 'CAD': 1.47 },
+    'INR': { 'USD': 0.014, 'EUR': 0.012, 'CAD': 0.018 },
+    'CAD': { 'USD': 0.80, 'INR': 58.33, 'EUR': 0.68 },
   }
 
   if source_currency == target_currency:
